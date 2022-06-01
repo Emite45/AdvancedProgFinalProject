@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Map;
 
-public class DijkstraSP<V extends Comparable<V>> {
+public class Dijkstra<V extends Comparable<V>> {
 	boolean[] marked;
 	int[] previous;
 	int[] distance;
@@ -17,8 +17,12 @@ public class DijkstraSP<V extends Comparable<V>> {
 		return true;
 	}
 	
-	DijkstraSP(WDigraph<V> G, int s) {
-		
+	void DijkstraSP(WDigraph<V> G, int s) {
+		if(verifyNonNegative(G)) {
+			
+		} else {
+			System.out.println("Graph has one or more negative weighted edge(s), results may be innacurate");
+		}
 	}
 	
 	void hasPathTo(int v) {
