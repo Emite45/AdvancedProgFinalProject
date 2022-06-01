@@ -18,7 +18,7 @@ public class DirectedEdge<V> {
 		return w;
 	}
 	
-	public double weight() {
+	public double getWeight() {
 		return weight;
 	}
 }

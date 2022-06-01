@@ -4,16 +4,9 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		Digraph<String> myDiGraph = GraphFactory.createDiGraphFromTextFile("graph-DFS-BFS.txt");
-		System.out.println(myDiGraph.adjacencyList);
-		DFS<String> myDfs = new DFS<String>();
 		WDigraph<String> myWDiGraph = GraphFactory.createWDiGraphFromTextFile("graph-WDG.txt");
 		System.out.println(myWDiGraph.adjacencyList);
-		
-		System.out.println("DFS result from 0 (weighted graph) : " + myDfs.dfsWD(myWDiGraph, "0"));
-		System.out.println("DFS result from 5 (weighted graph) : " + myDfs.dfsWD(myWDiGraph, "5"));
-		System.out.println("DFS result from 0 (unweighted graph) : " + myDfs.dfs(myDiGraph, "0"));
-		System.out.println("DFS result from 5 (unweighted graph) : " + myDfs.dfs(myDiGraph, "5"));
-		
+		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, 0);
+		System.out.println("The graph contains no negative weight edge ? " + myDijkstraSP.verifyNonNegative(myWDiGraph));
 	}
 }
