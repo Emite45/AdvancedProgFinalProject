@@ -53,10 +53,9 @@ public class GraphFactory
 		//Map<Integer, String> stationList = new HashMap<>();
 		while (sc.hasNextLine() && !sc.nextLine().contains("$"))
 		{
-			//String[] currentLine = sc.nextLine().split(" ");
-			//stationList.put(Integer.valueOf(currentLine[0]), currentLine[1]);
-			//System.out.println(currentLine[1]);
-			System.out.println(sc.nextLine());
+			String[] currentLine = sc.nextLine().split(" ",2);
+			stationList.put(Integer.valueOf(currentLine[0]), currentLine[1]);
+			System.out.println(currentLine[1]);
 			
 		}		
 		while (sc.hasNextLine())
