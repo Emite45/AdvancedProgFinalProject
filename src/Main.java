@@ -1,4 +1,7 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,6 +14,16 @@ public class Main
 
 		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, "0", "7");
 //		System.out.println("The graph contains no negative weight edge ? " + myDijkstraSP.verifyNonNegative(myWDiGraph));
+//		Map<Integer, String> stationListMap = new HashMap<>();
+//		WDigraph<String> myGraph = GraphFactory.createWDiGraphFromMetroFile("metro.txt", stationListMap);
+//		System.out.println("number of nodes : " + myGraph.adjacencyList.size());
+//		int numberOfEdges = 0;
+//		for (Map.Entry<String, ArrayList<DirectedEdge<String>>> mapElement : myGraph.adjacencyList.entrySet()) {
+//			numberOfEdges += mapElement.getValue().size();
+//			
+//		}
+//		System.out.println("number of edges : " + numberOfEdges);
+//		System.out.println("Test push repo git");
 
 
 
