@@ -17,7 +17,7 @@ public class DFS<V extends Comparable<V>> {
 			Collections.sort(g.adjacencyList.get(currentNode), new SortByDestinationDirectedEdge<V>());
 			Iterator<DirectedEdge<V>> i = g.adjacencyList.get(currentNode).listIterator();
 			while (i.hasNext()) {
-				V nextNode = i.next().to();
+				V nextNode = i.next().getDestination();
 				if (!dfsNodesList.contains(nextNode))
 					dFSRecursion2(g, nextNode, dfsNodesList);
 			}
@@ -36,7 +36,7 @@ public class DFS<V extends Comparable<V>> {
 			Collections.sort(g.adjacencyList.get(currentNode), new SortByDestinationEdge<V>());
 			Iterator<Edge<V>> i = g.adjacencyList.get(currentNode).listIterator();
 			while (i.hasNext()) {
-				V nextNode = i.next().to();
+				V nextNode = i.next().getDestination();
 				if (!dfsNodesList.contains(nextNode))
 					dFSRecursion(g, nextNode, dfsNodesList);
 			}
