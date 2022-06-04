@@ -24,7 +24,7 @@ public class Digraph<V extends Comparable<V>> extends Graph<V,Edge<V>>
 	@Override
 	public String toString()
 	{
-		String str = "";
+		String str = "Order: " + this.order + "\nSize: " + this.size + "\n";
 
 		for (Map.Entry mapentry : this.adjacencyList.entrySet())
 		{
