@@ -1,24 +1,18 @@
-
-public class DirectedEdge<V> {
-	private final V v;
-	private final V w;
+public class DirectedEdge<V> extends Edge<V>
+{
 	private final double weight;
 	
-	public DirectedEdge(V source, V destination, double weightDouble) {
-		this.v = source;
-		this.w = destination;
+	public DirectedEdge(V source, V destination, double weightDouble)
+	{
+		super(source, destination);
 		this.weight = weightDouble;
 	}
 	
-	public V from() {
-		return v;
-	}
-	
-	public V to() {
-		return w;
-	}
-	
-	public double getWeight() {
-		return weight;
+	public double getWeight() {return weight;}
+
+	@Override
+	public String toString()
+	{
+		return this.getSource() + " --> " + this.getDestination() + " : " + this.weight;
 	}
 }
