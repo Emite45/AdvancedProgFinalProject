@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class WDigraph<V extends Comparable<V>> extends Graph<V,DirectedEdge<V>>
 {
 	
-	public Map<V,ArrayList<DirectedEdge<V>>> adjacencyList;
+	private Map<V,ArrayList<DirectedEdge<V>>> adjacencyList;
 
 	public WDigraph()
 	{
@@ -22,11 +22,12 @@ public class WDigraph<V extends Comparable<V>> extends Graph<V,DirectedEdge<V>>
 		this.adjacencyList.get(edge.getSource()).add(edge);
 	}
 
+	public Map<V, ArrayList<DirectedEdge<V>>> getAdjacencyList() {return this.adjacencyList;}
 
 	@Override
 	public String toString()
 	{
-		String str = "";
+		String str = "Order: " + this.order + "\nSize: " + this.size + "\n";
 
 		for (Map.Entry mapentry : this.adjacencyList.entrySet())
 		{

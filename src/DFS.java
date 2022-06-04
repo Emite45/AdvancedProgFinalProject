@@ -13,9 +13,9 @@ public class DFS<V extends Comparable<V>> {
 
 	void dFSRecursion2(WDigraph<V> g, V currentNode, List<V> dfsNodesList) {
 		dfsNodesList.add(currentNode);
-		if (g.adjacencyList.get(currentNode) != null) {
-			Collections.sort(g.adjacencyList.get(currentNode), new SortByDestinationDirectedEdge<V>());
-			Iterator<DirectedEdge<V>> i = g.adjacencyList.get(currentNode).listIterator();
+		if (g.getAdjacencyList().get(currentNode) != null) {
+			Collections.sort(g.getAdjacencyList().get(currentNode), new SortByDestinationDirectedEdge<V>());
+			Iterator<DirectedEdge<V>> i = g.getAdjacencyList().get(currentNode).listIterator();
 			while (i.hasNext()) {
 				V nextNode = i.next().getDestination();
 				if (!dfsNodesList.contains(nextNode))
