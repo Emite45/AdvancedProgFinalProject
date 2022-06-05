@@ -19,7 +19,7 @@ public class Main
 		Dijkstra<String> dijkstraGraphWDG = new Dijkstra<>();
 		dijkstraGraphWDG.dijkstraSP(graphWDG, "0", "7");
 
-		System.out.println("\nTest Dijkstra with graph-WDG.txt");
+		System.out.println("\nTest Dijkstra with Metro");
 		Dijkstra<String> dijkstraMetro = new Dijkstra<>();
 		long start1 = System.currentTimeMillis();
 		dijkstraMetro.dijkstraSP(graphMetro, "80", "105");
@@ -29,11 +29,11 @@ public class Main
 
 
 		//Test Dijkstra bidirectional
-		System.out.println("\n\nTest Dijkstra with graph-WDG.txt");
+		System.out.println("\n\nTest Dijkstra bidirectional with graph-WDG.txt");
 		DijkstraBidirectional<String> dijkstraBidirectionalGraphWDG = new DijkstraBidirectional<>();
 		dijkstraBidirectionalGraphWDG.dijkstraBidirectionalSP(graphWDG, "0", "7");
 
-		System.out.println("\nTest Dijkstra with graph-WDG.txt");
+		System.out.println("\nTest Dijkstra bidirectional with Metro");
 		DijkstraBidirectional<String> dijkstraBidirectionalMetro = new DijkstraBidirectional<>();
 		long start2 = System.currentTimeMillis();
 		dijkstraBidirectionalMetro.dijkstraBidirectionalSP(graphMetro, "80", "105");
@@ -48,7 +48,6 @@ public class Main
 		bellmanFord.BellmanFordSP(graphWDG, "0", "7");
 
 		System.out.println("");
-
 		BellmanFord<String> bellmanFordMetro = new BellmanFord<String>();
 		long start3 = System.currentTimeMillis();
 		bellmanFordMetro.BellmanFordSP(graphMetro, "80", "105");
