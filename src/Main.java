@@ -9,10 +9,12 @@ public class Main
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		WDigraph<String> myWDiGraph = GraphFactory.createWDiGraphFromTextFile("graph-WDG-n.txt");
+		WDigraph<String> myWDiGraph = GraphFactory.createWDiGraphFromTextFile("graph-WDG.txt");
 		System.out.println(myWDiGraph);
 
 		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, "0", "7");
+		BellmanFord<String> myBellmanFord = new BellmanFord<String>();
+		myBellmanFord.BellmanFordSP(myWDiGraph, "0");
 //		System.out.println("The graph contains no negative weight edge ? " + myDijkstraSP.verifyNonNegative(myWDiGraph));
 //		Map<Integer, String> stationListMap = new HashMap<>();
 //		WDigraph<String> myGraph = GraphFactory.createWDiGraphFromMetroFile("metro.txt", stationListMap);

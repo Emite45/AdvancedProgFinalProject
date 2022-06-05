@@ -41,6 +41,7 @@ public class GraphFactory
 		}
 
 		sc.close();
+		graph.order = graph.getAdjacencyList().size();
 		return graph;
 	}
 	
@@ -68,6 +69,7 @@ public class GraphFactory
 		}
 
 		sc.close();
+		graph.order = graph.getAdjacencyList().size();
 		return graph;
 	}
 }
