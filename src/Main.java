@@ -12,9 +12,9 @@ public class Main
 		WDigraph<String> myWDiGraph = GraphFactory.createWDiGraphFromTextFile("graph-WDG.txt");
 		System.out.println(myWDiGraph);
 
-		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, "0", "7");
+		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, "4", "3");
 		BellmanFord<String> myBellmanFord = new BellmanFord<String>();
-		myBellmanFord.BellmanFordSP(myWDiGraph, "0");
+		myBellmanFord.BellmanFordSP(myWDiGraph, "4", "3");
 //		System.out.println("The graph contains no negative weight edge ? " + myDijkstraSP.verifyNonNegative(myWDiGraph));
 //		Map<Integer, String> stationListMap = new HashMap<>();
 //		WDigraph<String> myGraph = GraphFactory.createWDiGraphFromMetroFile("metro.txt", stationListMap);

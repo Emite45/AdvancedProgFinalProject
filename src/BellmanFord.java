@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -43,22 +45,25 @@ public class BellmanFord<V extends Comparable<V>> {
 				return;
 			}
 		}
-		printDistances(distances);
-		printPaths(predecessor,destination);
+		System.out.println("\nBellman-Ford : ");
+		printDistance(distances, start, destination);
+		printPath(predecessor, start, destination);
 	}
 
-	private void printPaths(Map<V, V> predecessor) {
-		System.out.println("Path from Source");
-		for (Map.Entry<V, V> node : predecessor.entrySet()) {
-			System.out.println("node " + node.getKey() + " : " + node.getValue());
-		}
+	private void printDistance(Map<V, Double> distances, V start, V destination) {
+		System.out.println("shortest distance from " + start + " to " + destination + " = " + distances.get(destination));
+		
 	}
 
-	void printDistances(Map<V, Double> distances) {
-		System.out.println("Vertex Distance from Source");
-		for (Map.Entry<V, Double> node : distances.entrySet()) {
-			System.out.println("node " + node.getKey() + " : " + node.getValue());
+	private void printPath(Map<V, V> predecessor, V start, V destination) {
+		V current = destination;
+		List<V> path = new ArrayList<V>();
+		while(current != null) {
+			path.add(current);
+			current = predecessor.get(current);
 		}
+		Collections.reverse(path);
+		System.out.println("shortest path from " + start + " to " + destination + " = " + path);
 	}
 
 	ArrayList<DirectedEdge<V>> createEdgeList(WDigraph<V> graph) {
