@@ -9,7 +9,7 @@ public class Main
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		WDigraph<String> myWDiGraph = GraphFactory.createWDiGraphFromTextFile("graph-WDG.txt");
+		WDigraph<String> myWDiGraph = GraphFactory.createWDiGraphFromTextFile("graph-WDG-n.txt");
 		System.out.println(myWDiGraph);
 
 		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, "0", "7");

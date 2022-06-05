@@ -12,8 +12,9 @@ public class DijkstraSP<V extends Comparable<V>>
 
 	public DijkstraSP(WDigraph<V> graph, V start, V goal)
 	{
-		if(verifyNonNegative(graph))
-		{
+		if(!verifyNonNegative(graph)){
+			System.out.println("Graph has one or more negative weighted edge(s), results may be innacurate");
+		}
 			fringe = new HashMap<>();
 			closed = new ArrayList<>();
 
@@ -35,11 +36,11 @@ public class DijkstraSP<V extends Comparable<V>>
 			System.out.println("Visited nodes : " + this.closed);
 		}
 
-		else
-		{
-			System.out.println("Graph has one or more negative weighted edge(s), results may be innacurate");
-		}
-	}
+//		else
+//		{
+//			System.out.println("Graph has one or more negative weighted edge(s), results may be innacurate");
+//		}
+//	}
 
 
 	private void printFringe()
