@@ -13,7 +13,8 @@ public class Main
 //		Dijkstra<String> myDijkstra = new Dijkstra<>();
 //		myDijkstra.dijkstraSP(myWDiGraph, "A", "G");
 
-		DijkstraSP<String> myDijkstraSP = new DijkstraSP<>(myWDiGraph, "4", "3");
+		Dijkstra<String> myDijkstraSP = new Dijkstra<String>();
+		myDijkstraSP.dijkstraSP(myWDiGraph, "4", "3");
 		BellmanFord<String> myBellmanFord = new BellmanFord<String>();
 		myBellmanFord.BellmanFordSP(myWDiGraph, "4", "3");
 //		System.out.println("The graph contains no negative weight edge ? " + myDijkstraSP.verifyNonNegative(myWDiGraph));
@@ -38,8 +39,8 @@ public class Main
 		Map<Integer, String> stationListMap = new HashMap<>();
 		WDigraph<String> myGraph = GraphFactory.createWDiGraphFromMetroFile("metro.txt", stationListMap);
 
-		DijkstraBidirectional<String> myDijkstraSP = new DijkstraBidirectional<>();
-		myDijkstraSP.dijkstraBidirectionalSP(myGraph, "80", "105");
+		DijkstraBidirectional<String> myBiDijkstraSP = new DijkstraBidirectional<>();
+		myBiDijkstraSP.dijkstraBidirectionalSP(myGraph, "80", "105");
 
 	}
 }
