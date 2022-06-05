@@ -4,13 +4,13 @@ import java.util.stream.Collectors;
 public class DijkstraBidirectional <V extends Comparable<V>> extends Dijkstra<V>
 {
     private Map<List<V>, Double> fringeGoal;
-    private List<V> closedGoal;
+    private List<V> markedGoal;
 
     public DijkstraBidirectional()
     {
         super();
         this.fringeGoal = new HashMap<>();
-        this.closedGoal = new ArrayList<>();
+        this.markedGoal = new ArrayList<>();
     }
 
 
@@ -27,33 +27,31 @@ public class DijkstraBidirectional <V extends Comparable<V>> extends Dijkstra<V>
         Map<List<V>, Double> pathStart = new HashMap<>();
         Map<List<V>, Double> pathGoal = new HashMap<>();
 
-        printFringe(this.fringe);
-        printFringe(this.fringeGoal);
+//        printFringe(this.fringe);
+//        printFringe(this.fringeGoal);
 
-        while (!haveACommonElement(this.closed, this.closedGoal))
+        while (!haveACommonElement(this.marked, this.markedGoal))
         {
-            pathStart = findMinPathinFringe(this.fringe, this.closed);
-            addToFringe(this.fringe, this.closed, pathStart, graph);
+            pathStart = findMinPathinFringe(this.fringe, this.marked);
+            addToFringe(this.fringe, this.marked, pathStart, graph);
 
 //            removeFromFringe(this.fringe, pathStart);
-            addToClosed(this.closed, pathStart);
+            addToClosed(this.marked, pathStart);
 
-            printFringe(this.fringe);
+//            printFringe(this.fringe);
 
 
-            pathGoal = findMinPathinFringe(this.fringeGoal, this.closedGoal);
-            addToFringe(this.fringeGoal, this.closedGoal, pathGoal, graph);
+            pathGoal = findMinPathinFringe(this.fringeGoal, this.markedGoal);
+            addToFringe(this.fringeGoal, this.markedGoal, pathGoal, graph);
 
 //            removeFromFringe(this.fringeGoal, pathGoal);
-            addToClosed(this.closedGoal, pathGoal);
+            addToClosed(this.markedGoal, pathGoal);
 
-            printFringe(this.fringe);
+//            printFringe(this.fringe);
         }
 
-        V commonElement = findCommonElement(this.closed, this.closedGoal);
-
-        System.out.println("Shortest path : " + findSP(this.fringe, this.fringeGoal, commonElement));
-        System.out.println("Visited nodes : " + findVisitedNodes(this.closed, this.closedGoal));
+        V commonElement = findCommonElement(this.marked, this.markedGoal);
+        printSP(commonElement);
     }
 
 
@@ -122,5 +120,12 @@ public class DijkstraBidirectional <V extends Comparable<V>> extends Dijkstra<V>
         closed = closed.stream().distinct().collect(Collectors.toList());
 
         return closed;
+    }
+
+
+    public void printSP(V commonElement)
+    {
+        System.out.println("Shortest path : " + findSP(this.fringe, this.fringeGoal, commonElement));
+        System.out.println("Visited nodes : " + findVisitedNodes(this.marked, this.markedGoal));
     }
 }

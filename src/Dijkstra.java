@@ -2,17 +2,13 @@ import java.util.*;
 
 public class Dijkstra<V extends Comparable<V>>
 {
-//	private List<Integer> marked;
-//	private List<Integer> previous;
-//	private List<Integer> distance;
 	protected Map<List<V>, Double> fringe;
-	protected List<V> closed;
-
+	protected List<V> marked;
 
 	public Dijkstra()
 	{
 		this.fringe = new HashMap<>();
-		this.closed = new ArrayList<>();
+		this.marked = new ArrayList<>();
 	}
 
 
@@ -26,21 +22,20 @@ public class Dijkstra<V extends Comparable<V>>
 		this.fringe.put(new ArrayList<>(){{add(start);}}, 0.0);
 		Map<List<V>, Double> path = new HashMap<>();
 
-		printFringe(this.fringe);
+//		printFringe(this.fringe);
 
-		while (!this.closed.contains(goal))
+		while (!this.marked.contains(goal))
 		{
-			path = findMinPathinFringe(this.fringe, this.closed);
-			addToFringe(this.fringe, this.closed, path, graph);
+			path = findMinPathinFringe(this.fringe, this.marked);
+			addToFringe(this.fringe, this.marked, path, graph);
 
 			removeFromFringe(this.fringe, path);
-			addToClosed(this.closed, path);
+			addToClosed(this.marked, path);
 
-			printFringe(this.fringe);
+//			printFringe(this.fringe);
 		}
 
-		System.out.println("Shortest path : " + path);
-		System.out.println("Visited nodes : " + this.closed);
+		printSP(path);
 	}
 
 
@@ -156,19 +151,11 @@ public class Dijkstra<V extends Comparable<V>>
 
 		return true;
 	}
-	
-	void hasPathTo(int v)
+
+
+	public void printSP(Map<List<V>, Double> path )
 	{
-		
-	}
-	
-	void distTo (int v)
-	{
-		
-	}
-	
-	void printSP (int v)
-	{
-		
+		System.out.println("Shortest path : " + path);
+		System.out.println("Visited nodes : " + this.marked);
 	}
 }

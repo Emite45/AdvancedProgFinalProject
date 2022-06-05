@@ -56,7 +56,7 @@ public class GraphFactory
 		{
 			String[] currentLine = sc.nextLine().split(" ",2);
 			stationList.put(Integer.valueOf(currentLine[0]), currentLine[1]);
-			System.out.println(currentLine[1]);
+//			System.out.println(currentLine[1]);
 			
 		}		
 		while (sc.hasNextLine())
@@ -65,7 +65,7 @@ public class GraphFactory
 			String[] currentLineNodes = sc.nextLine().split(" ");
 			DirectedEdge<String> newDirectedEdge = new DirectedEdge<String>(currentLineNodes[0], (currentLineNodes[1]), Double.parseDouble(currentLineNodes[2]));
 			graph.addEdge(newDirectedEdge);
-			System.out.println(currentLineNodes[0]);
+//			System.out.println(currentLineNodes[0]);
 		}
 
 		sc.close();
